@@ -1,14 +1,9 @@
 import Foundation
 
-public class NetworkManager {
+public class NetworkingManager: NetworkingManaging {
     public init() {}
 
-    public func request(url: String, completion: @escaping (Result<Data, Error>) -> Void) {
-        guard let url = URL(string: url) else {
-            completion(.failure(NSError(domain: "InvalidURL", code: -1, userInfo: nil)))
-            return
-        }
-
+    public func fetchData(from url: URL, completion: @escaping (Result<Data, Error>) -> Void) {
         let task = URLSession.shared.dataTask(with: url) { data, _, error in
             if let error = error {
                 completion(.failure(error))
