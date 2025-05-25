@@ -31,7 +31,7 @@ final class CoreManagerTests: XCTestCase {
             configManager: MockConfigManager()
         )
 
-        coreManager.executeCoreLogicParallel(with: URL(string: "https://example.com")!, configFileName: "cards", completion: {_,_ in })
+        coreManager.fetchCardList(with: URL(string: "https://example.com")!, configFileName: "cards", completion: {_,_ in })
 
         XCTAssertTrue(true)
     }

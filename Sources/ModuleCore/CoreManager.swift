@@ -36,7 +36,7 @@ public class CoreManager: CoreManaging {
     
     // MARK: - Execute Logic in Parallel (Config + Network)
     
-    public func executeCoreLogicParallel(
+    public func fetchCardList(
         with url: URL,
         configFileName: String,
         completion: @escaping ([Card]?, String?) -> Void
@@ -125,7 +125,7 @@ public class CoreManager: CoreManaging {
 // MARK: - CoreManaging Protocol
 
 public protocol CoreManaging {
-    func executeCoreLogicParallel(
+    func fetchCardList(
         with url: URL,
         configFileName: String,
         completion: @escaping ([Card]?, String?) -> Void
