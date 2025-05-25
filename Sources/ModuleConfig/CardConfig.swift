@@ -10,7 +10,6 @@ public struct CardConfig: Codable {
 public struct CardTypeConfig: Codable {
     public let cardNumberDisplay: Bool?
     public let cardNameDisplay: Bool?
-    public let cardBlocked: Bool?
     public let disabled: Bool?
 }
 

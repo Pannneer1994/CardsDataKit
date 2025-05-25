@@ -20,8 +20,8 @@ final class CoreManagerTests: XCTestCase {
         }
 
         class MockConfigManager: CardConfigManaging {
-            func loadConfig(from filename: String, bundle: Bundle) -> Result<[ModuleConfig.CardConfig], ModuleConfig.CardConfigError> {
-                return .success([CardConfig(credit: .none, debit: .none)])
+            func loadConfig(from filename: String, bundle: Bundle) -> Result<ModuleConfig.CardConfig, ModuleConfig.CardConfigError> {
+                return .success(CardConfig(credit: .none, debit: .none))
             }
         }
 
@@ -31,7 +31,7 @@ final class CoreManagerTests: XCTestCase {
             configManager: MockConfigManager()
         )
 
-        coreManager.executeCoreLogic(with: URL(string: "https://example.com")!, configFileName: "cards", completion: {_,_ in })
+        coreManager.executeCoreLogicParallel(with: URL(string: "https://example.com")!, configFileName: "cards", completion: {_,_ in })
 
         XCTAssertTrue(true)
     }

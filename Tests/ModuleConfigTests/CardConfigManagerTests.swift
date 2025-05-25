@@ -15,7 +15,7 @@ final class CardConfigManagerTests: XCTestCase {
         
         switch result {
             case .success(let configs):
-                XCTAssertFalse(configs.isEmpty, "Expected card configs to be loaded.")
+                XCTAssertNotNil(configs, "Expected card configs to be loaded.")
             case .failure(let error):
                 XCTFail("Unexpected failure: \(error)")
         }
